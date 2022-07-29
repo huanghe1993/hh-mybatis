@@ -51,6 +51,6 @@ public class MapperRegistry {
         if (!knownMappers.containsKey(type)) {
             throw new RuntimeException("Type " + type + " is not known to the MapperRegistry.");
         }
-        knownMappers.get(type).getInstance(sqlSession);
+        return (T) knownMappers.get(type).getInstance(sqlSession);
     }
 }
